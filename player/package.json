@@ -1,0 +1,40 @@
+{
+  "name": "player",
+  "version": "1.0.0",
+  "description": "Responsive square video player with frame scrubbing proof tests",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0",
+    "npm": ">=11.0.0"
+  },
+  "scripts": {
+    "node24": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/node24.ps1",
+    "dev": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/node24.ps1 run dev:direct",
+    "dev:direct": "vite",
+    "build": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/node24.ps1 run build:direct",
+    "build:direct": "tsc --noEmit && vite build",
+    "preview": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/node24.ps1 run preview:direct",
+    "preview:direct": "vite preview",
+    "generate:videos": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/node24.ps1 run generate:videos:direct",
+    "generate:videos:direct": "node ./scripts/generate-sample-videos.mjs",
+    "collect:playwright": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/node24.ps1 run collect:playwright:direct",
+    "collect:playwright:direct": "node ./scripts/collect-playwright-artifacts.mjs",
+    "test:unit": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/node24.ps1 run test:unit:direct",
+    "test:unit:direct": "vitest run",
+    "test:integration": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/node24.ps1 run test:integration:direct",
+    "test:integration:direct": "playwright test && npm run collect:playwright:direct",
+    "test": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/node24.ps1 run test:direct",
+    "test:direct": "npm run test:unit:direct && npm run test:integration:direct"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^24.12.2",
+    "jsdom": "^24.1.3",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.9",
+    "vitest": "^4.1.4"
+  }
+}

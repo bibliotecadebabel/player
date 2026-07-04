@@ -1,0 +1,12 @@
+* text=auto
+
+*.mp4 binary
+*.webm binary
+*.mov binary
+*.m4v binary
+*.ogg binary
+*.ogv binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
