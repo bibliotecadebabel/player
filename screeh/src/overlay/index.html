@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Square Recorder Selection Overlay</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="overlay-shell" data-testid="global-selection-overlay">
+      <div class="hint">
+        Drag anywhere to draw a bounding box. Resize edges/corners, then start recording. Press Esc to cancel.
+      </div>
+      <div id="selection-box" class="selection-box" data-testid="global-selection-box">
+        <div class="handle handle-n" data-handle="n" data-testid="resize-handle-n"></div>
+        <div class="handle handle-e" data-handle="e" data-testid="resize-handle-e"></div>
+        <div class="handle handle-s" data-handle="s" data-testid="resize-handle-s"></div>
+        <div class="handle handle-w" data-handle="w" data-testid="resize-handle-w"></div>
+        <div class="handle handle-ne" data-handle="ne" data-testid="resize-handle-ne"></div>
+        <div class="handle handle-se" data-handle="se" data-testid="resize-handle-se"></div>
+        <div class="handle handle-sw" data-handle="sw" data-testid="resize-handle-sw"></div>
+        <div class="handle handle-nw" data-handle="nw" data-testid="resize-handle-nw"></div>
+      </div>
+      <div id="selection-toolbar" class="selection-toolbar hidden" data-testid="selection-toolbar">
+        <span id="selection-label" data-testid="global-selection-label">waiting</span>
+        <button id="start-recording-button" data-testid="overlay-start-recording">Start Recording</button>
+        <button id="cancel-button" data-testid="overlay-cancel">Cancel</button>
+      </div>
+    </div>
+    <script type="module" src="./overlay.js"></script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "name": "square-screen-recorder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Electron app that records a user-selected rectangular screen region with ffmpeg.",
+  "main": "src/main/main.js",
+  "engines": {
+    "node": "^22.22.2 || ^24.14.1"
+  },
+  "scripts": {
+    "prestart": "node scripts/doctor.mjs",
+    "start": "electron src/main/main.js",
+    "predev": "node scripts/doctor.mjs",
+    "dev": "electron src/main/main.js",
+    "postinstall": "node scripts/ensure-output-dirs.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "test": "npm run doctor && npm run test:unit && npm run test:functional && npm run test:redteam && npm run test:integration && npm run verify:proof",
+    "test:unit": "vitest run tests/unit",
+    "test:functional": "vitest run tests/functional",
+    "test:redteam": "vitest run tests/red-team && node scripts/write-red-team-summary.mjs",
+    "test:integration": "playwright test",
+    "verify:proof": "node scripts/verify-proof-artifacts.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.59.1",
+    "electron": "41.2.1",
+    "jsdom": "24.1.3",
+    "vitest": "4.1.4"
+  },
+  "dependencies": {
+    "ffmpeg-static": "5.3.0"
+  }
+}
